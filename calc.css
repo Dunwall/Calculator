@@ -1,62 +1,26 @@
 *{
-    padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    padding: 0;
 }
 
-body{
+html,body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: black;
     height: 100vh;
 }
 
 button{
-    cursor: pointer;    
-    min-height: 3rem;
-
-    min-width: 5rem;
+    cursor: pointer;
 }
 
 .calculator{
-    background-color: grey;
-    height: 50%;
-    width: 100%;
-    max-width: 30rem;
-    min-width: 10rem;
-    min-height: 30rem;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 2rem;
+    background-color: white;
+    height: 30vh;
 }
 
 #display{
-    width: 100%;
-    height: 20%;
-    background-color: rgb(9, 43, 9);
-}
-
-#input{
-    background-color: white;
-    width: 100%;
-    height: 80%;
-}
-
-#topRow{
-    display: flex;
-    justify-content: space-between;
-}
-
-#middle{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-
-#rightRow{
-    display: flex;
-    flex-direction: column;
+    height: 15%;
 }
