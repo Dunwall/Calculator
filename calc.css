@@ -32,7 +32,7 @@
     transition: 0.5s;
 }
 
-.delete:hover{
+.delete:hover i{
     color: var(--bright-orange);
 }
 
