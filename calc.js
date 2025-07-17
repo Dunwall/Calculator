@@ -6,6 +6,7 @@ let firstInput = "";
 let op = "";
 btns.forEach((btn)=>{
     btn.addEventListener('click',(e)=>{
+        playSound(e);
         const type = e.target.dataset.type;
         const value = e.target.dataset.value;
         if(type === 'allClear'){
@@ -45,6 +46,16 @@ btns.forEach((btn)=>{
     })
 })
 
+function playSound(e){
+    const type = e.target.dataset.type;
+    const audio = document.querySelector(`audio[data-type="${type}"`);
+    // const key = document.querySelector(`button[data-type="${e.type}"]`);
+    if(!audio)return;
+
+    audio.currentTime = 0;
+    audio.play();
+}
+
 function del(){
     if(op === ""){
         firstInput = firstInput.slice(0,-1);
@@ -80,7 +91,12 @@ function multiply(a,b){
 }
 
 function divide(a,b){
-    return a/b;
+    if(b!=0){
+        return a/b;
+    }
+    else{
+        return "Nice try ya basterd";
+    }
 }
 
 function operate(op,a,b){

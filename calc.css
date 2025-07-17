@@ -1,6 +1,50 @@
 *{
     margin: 0;
     padding: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+:root{
+    --dark-orange: #513d29;
+    --dark-orange-hover:#6d5237;
+    --bright-orange: #F48B32;
+    --brighter-orange: #e97612;
+    --brightest-orange: #ff7903;
+    --seasalt: #FAF9F9;
+    --seasaltHover: #ffffff;
+    --coolGray: #2b2c2c;
+}
+
+.seasalt{  
+    background-color: var(--seasalt);
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+
+.seasalt:hover{
+    color: var(--bright-orange);
+    background-color: var(--seasalt);
+}
+
+.delete>i{
+    color: black;
+    transition: 0.5s;
+}
+
+.delete:hover{
+    color: var(--bright-orange);
+}
+
+.coolGray{
+    background-color: var(--coolGray);
+}
+
+.bright-orange{
+    background-color: var(--bright-orange);
+}
+.bright-orange:hover{
+    background-color: var(--brighter-orange);
 }
 
 html,body{
@@ -8,19 +52,75 @@ html,body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
     height: 100vh;
+    background-image: url(./images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.firstRow,
+.secondRow,
+.thirdRow,
+.fourthRow,
+.topRow{
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.inner-wrapper{
+    max-width: 20rem;
+}
+
+.clear, .delete{
+    width: 48.5%;
 }
 
 button{
     cursor: pointer;
+    border-radius: 5px;
+    width: 2rem;
+    height: 2rem;
+    flex: 1;
+    background-color: var(--dark-orange);
+    border: none;
+    transition: 0.2s;
+    box-shadow: 1px 1px 1px 1px rgb(66, 62, 62);
+}
+
+button:hover{
+    background-color: var(--dark-orange-hover);
 }
 
 .calculator{
-    background-color: white;
-    height: 30vh;
+    height: auto;
+    padding: 1rem;
+    max-width: 15rem;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(74, 72, 72);
 }
 
 #display{
-    height: 15%;
+    display: block;
+    min-height: 2rem;
+    max-height: 2rem;
+    overflow-y: auto;
+    
+    padding: 0.5rem;
+    background-color: grey;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    border-radius: 5px;
+
+    text-align: right;
+    word-break: break-word;
+}
+
+.keys{
+    margin-top: 1rem;
+    width: 100%;
+    font-family: 'Roboto',sans-serif;
 }

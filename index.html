@@ -6,88 +6,114 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="calc.css">
     <script src="calc.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Onest:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Play:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Onest:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Play:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 </head>
 <body>
-    <div class="calculator">
+    <div class="calculator coolGray">
+        <div class="inner-wrapper">
         <div id="display"></div>
         <div class="keys">
             <!-- CLEAR DISPLAY BUTTON -->
-            <button class="clear" data-type="allClear" data-value="clear">
-                AC
-            </button>
+            <div class="topRow">
+                <button class="clear seasalt" data-type="allClear" data-value="clear">
+                    AC
+                </button>
 
-            <!-- DELETE LAST INPUT BUTTON -->
-            <button class="delete" data-type="del" data-value="del">
-                Back
-            </button>
-
+                <!-- DELETE LAST INPUT BUTTON -->
+                <button class="delete seasalt" data-type="del" data-value="del">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            </div>
             <!-- NUMBER KEYS -->
-            <button class="key" data-type="number" data-value="7">
-                7
-            </button>
+            <div class="mainRow">
+                <div class="firstRow">
+                <button class="key" data-type="number" data-value="7">
+                    7
+                </button>
 
-            <button class="key" data-type="number" data-value="8">
-                8
-            </button>
+                <button class="key" data-type="number" data-value="8">
+                    8
+                </button>
 
-            <button class="key" data-type="number" data-value="9">
-                9
-            </button>
+                <button class="key" data-type="number" data-value="9">
+                    9
+                </button>
 
-            <button class="key" data-type="number" data-value="4">
-                4
-            </button>
+                <button class="key bright-orange" data-type="operator" data-value="+">
+                    +
+                </button>
 
-            <button class="key" data-type="number" data-value="5">
-                5
-            </button>
+                </div>
 
-            <button class="key" data-type="number" data-value="6">
-                6
-            </button>
+                <div class="secondRow">
+                <button class="key" data-type="number" data-value="4">
+                    4
+                </button>
 
-            <button class="key" data-type="number" data-value="1">
-                1
-            </button>
+                <button class="key" data-type="number" data-value="5">
+                    5
+                </button>
 
-            <button class="key" data-type="number" data-value="2">
-                2
-            </button>
+                <button class="key" data-type="number" data-value="6">
+                    6
+                </button>
 
-            <button class="key" data-type="number" data-value="3">
-                3
-            </button>
+                <button class="key bright-orange" data-type="operator" data-value="-">
+                    -
+                </button>
+                </div>
 
-            <button class="key" data-type="number" data-value="0">
-                0
-            </button>
+                <div class="thirdRow">
+                    <button class="key" data-type="number" data-value="1">
+                        1
+                    </button>
+
+                    <button class="key" data-type="number" data-value="2">
+                        2
+                    </button>
+
+                    <button class="key" data-type="number" data-value="3">
+                        3
+                    </button>
+
+                    <button class="key bright-orange" data-type="operator" data-value="*">
+                        *
+                    </button>
+                </div>
+
+                <div class="fourthRow">
+                    <button class="key" data-type="number" data-value="0">
+                        0
+                    </button>
             
-            <button class="decimal" data-type="number" data-value=".">
-                .
-            </button>
+                    <button class="decimal" data-type="number" data-value=".">
+                        .
+                    </button>
 
-            <!-- OPERATOR BUTTONS -->
-            <button class="key" data-type="operator" data-value="+">
-                +
-            </button>
+                    <button class="equals" data-type="operator" data-value="=">
+                        =
+                    </button>
 
-            <button class="key" data-type="operator" data-value="-">
-                -
-            </button>
-
-            <button class="key" data-type="operator" data-value="*">
-                *
-            </button>
-
-            <button class="key" data-type="operator" data-value="/">
-                /
-            </button>
-
-            <button class="equals" data-type="operator" data-value="=">
-                =
-            </button>
+                    <button class="key bright-orange" data-type="operator" data-value="/">
+                        /
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-    
+    </div>
+    <audio data-type="number" src="./sound/button.wav"></audio>
+    <audio data-type="operator" src="./sound/button.wav"></audio>
+    <audio data-type="allClear" src="./sound/button.wav"></audio>
+    <audio data-type="del" src="./sound/button.wav"></audio>
 </body>
 </html>
