@@ -17,7 +17,3 @@ A simple calculator built with HTML, CSS, and JavaScript as part of [The Odin Pr
 
 ## 📂 Usage
 Clone the repo and open `index.html` in your browser.
-
----
-
-Happy coding!
