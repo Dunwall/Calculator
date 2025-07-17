@@ -1,32 +1,70 @@
 const btns = document.querySelectorAll('button');
 const display = document.querySelector('#display');
 const content = display.textContent;
-let a = "";
-let b = "";
+let secondInput = "";
+let firstInput = "";
 let op = "";
-
-btns.forEach(btn => {
+btns.forEach((btn)=>{
     btn.addEventListener('click',(e)=>{
-        let type = e.target.dataset.type;
-        let number = e.target.dataset.value;
-        let operator = e.target.dataset.value;
+        const type = e.target.dataset.type;
+        const value = e.target.dataset.value;
+        if(type === 'allClear'){
+            clearDisplay();
+        }
+        if(type === 'del'){
+            del();
+        }
         if(type === 'number'){
-            updateDisplay(number);
+            if(op === ""){
+                firstInput += value;
+                console.log(`first value: ${firstInput}`);
+                updateDisplay(firstInput);
+            }
+            else{
+                secondInput += value;
+                console.log(`second value: ${secondInput}`);
+                updateDisplay(secondInput);
+            }
         }
-        else if(type === 'operator'){
-            console.log(operator);
+        else if(type === 'operator' && firstInput !== ""){
+            if(value === '='){
+                if(firstInput && secondInput && op !== ""){
+                    const result = operate(op,firstInput,secondInput);
+                    updateDisplay(result);
+                    console.log(result);
+                    firstInput = String(result);
+                    secondInput = "";
+                    op = "";
+                }
+            }
+            else{
+                op = value;
+                updateDisplay(op);
+            }
         }
-        else if(type === 'allClear'){
-            console.log(type);
-        }
-        else if(type === 'del'){
-            console.log(type);
-        }
-    }) 
+    })
 })
 
-function updateDisplay(d){
-    display.textContent += d;
+function del(){
+    if(op === ""){
+        firstInput = firstInput.slice(0,-1);
+        updateDisplay(firstInput);
+    }
+    else{
+        secondInput = secondInput.slice(0,-1);
+        updateDisplay(secondInput);
+    }
+}
+
+function clearDisplay(){
+    firstInput = '';
+    secondInput = '';
+    op = '';
+    display.textContent = "";
+}
+
+function updateDisplay(...d){
+    display.textContent = d;
 }
 
 function add(a,b){
@@ -46,20 +84,25 @@ function divide(a,b){
 }
 
 function operate(op,a,b){
-    op = Number(op);
+    a = Number(a);
+    b = Number(b);
     if(op == '+'){
-        console.log(add(a,b));
+        let result = add(a,b)
+        return result;
     }
 
     else if(op == '-'){
-        console.log(subtract(a,b));
+        let result = subtract(a,b);
+        return result;
     }
 
     else if(op == '*'){
-        console.log(multiply(a,b));
+        let result = multiply(a,b);
+        return result;
     }
 
     else if(op == '/'){
-        console.log(divide(a,b));
+        let result = divide(a,b);
+        return result;
     }
 }
