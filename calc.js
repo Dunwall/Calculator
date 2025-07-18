@@ -18,42 +18,58 @@ btns.forEach((btn)=>{
         if(type === 'number'){
             if(op === ""){
                 firstInput += value;
-                console.log(`first value: ${firstInput}`);
                 updateDisplay(firstInput);
+                console.log(`firstValue = ${firstInput}`);
             }
-            else{
-                secondInput += value;
-                console.log(`second value: ${secondInput}`);
-                updateDisplay(secondInput);
+            else if(op!=="="){
+                    secondInput += value;
+                    updateDisplay(secondInput);
+                    console.log(`secondValue = ${secondInput}`);
             }
+            
         }
-        else if(type === 'operator' && firstInput !== ""){
-            if(value === '='){
-                if(firstInput && secondInput && op !== ""){
-                    const result = operate(op,firstInput,secondInput);
+        else if(type === "operator"){
+                if(value === "=" && secondInput!==""){
+                    let result = operate(op,firstInput,secondInput);
                     updateDisplay(result);
                     console.log(result);
-                    firstInput = String(result);
+                    firstInput = result;
                     secondInput = "";
                     op = "";
                 }
-            }
-            else{
-                op = value;
-                updateDisplay(op);
-            }
+                else if(value !== "=" && secondInput!==""){
+                    let firstResult = operate(op,firstInput,secondInput);
+                    updateDisplay(firstResult);
+                    console.log(`First Result: ${firstResult}`);
+                    firstInput = firstResult;
+                    secondInput = "";
+                    op = value;
+                    updateProgress();
+                }
+                else{
+                    op = value;
+                    updateProgress();
+                }
         }
     })
 })
 
+function updateProgress(){
+    updateDisplay(`${firstInput} ${op} ${secondInput}`);
+}
+
 function playSound(e){
     const type = e.target.dataset.type;
-    const audio = document.querySelector(`audio[data-type="${type}"`);
-    // const key = document.querySelector(`button[data-type="${e.type}"]`);
+    try{
+    const audio = document.querySelector(`audio[data-type="${type}"]`);
     if(!audio)return;
 
     audio.currentTime = 0;
     audio.play();
+    }
+    catch(err){
+        console.error("audio error: ",err);
+    }
 }
 
 function del(){
