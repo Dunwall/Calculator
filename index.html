@@ -32,21 +32,21 @@
 
                 <!-- DELETE LAST INPUT BUTTON -->
                 <button class="delete seasalt" data-type="del" data-value="del">
-                    <i class="fa-solid fa-delete-left"></i>
+                    <i class="fa-solid fa-delete-left" data-type="del" data-value="del"></i>
                 </button>
             </div>
             <!-- NUMBER KEYS -->
             <div class="mainRow">
                 <div class="firstRow">
-                <button class="key" data-type="number" data-value="7">
+                <button class="key" data-type="number" data-digit="Digit7" data-numPad="Numpad7" data-value="7">
                     7
                 </button>
 
-                <button class="key" data-type="number" data-value="8">
+                <button class="key" data-type="number" data-digit="Digit8" data-numPad="Numpad8" data-value="8">
                     8
                 </button>
 
-                <button class="key" data-type="number" data-value="9">
+                <button class="key" data-type="number" data-digit="Digit9" data-numPad="Numpad9" data-value="9">
                     9
                 </button>
 
@@ -57,15 +57,15 @@
                 </div>
 
                 <div class="secondRow">
-                <button class="key" data-type="number" data-value="4">
+                <button class="key" data-type="number" data-digit="Digit4" data-numPad="Numpad4" data-value="4">
                     4
                 </button>
 
-                <button class="key" data-type="number" data-value="5">
+                <button class="key" data-type="number" data-digit="Digit5" data-numPad="Numpad5" data-value="5">
                     5
                 </button>
 
-                <button class="key" data-type="number" data-value="6">
+                <button class="key" data-type="number" data-digit="Digit6" data-numPad="Numpad6" data-value="6">
                     6
                 </button>
 
@@ -75,15 +75,15 @@
                 </div>
 
                 <div class="thirdRow">
-                    <button class="key" data-type="number" data-value="1">
+                    <button class="key" data-type="number" data-digit="Digit1" data-numPad="Numpad1" data-value="1">
                         1
                     </button>
 
-                    <button class="key" data-type="number" data-value="2">
+                    <button class="key" data-type="number" data-digit="Digit2" data-numPad="Numpad2" data-value="2">
                         2
                     </button>
 
-                    <button class="key" data-type="number" data-value="3">
+                    <button class="key" data-type="number" data-digit="Digit3" data-numPad="Numpad3" data-value="3">
                         3
                     </button>
 
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="fourthRow">
-                    <button class="key" data-type="number" data-value="0">
+                    <button class="key" data-type="number" data-digit="Digit0" data-numPad="Numpad0" data-value="0">
                         0
                     </button>
             
@@ -113,9 +113,9 @@
         </div>
     </div>
     </div>
-    <audio data-type="number" src="./sound/button.wav"></audio>
-    <audio data-type="operator" src="./sound/button.wav"></audio>
-    <audio data-type="allClear" src="./sound/button.wav"></audio>
-    <audio data-type="del" src="./sound/button.wav"></audio>
+    <audio data-type="number" src="./sound/buttonSound.mp3" preload="auto"></audio>
+    <audio data-type="operator" src="./sound/buttonSound.mp3" preload="auto"></audio>
+    <audio data-type="allClear" src="./sound/buttonSound.mp3" preload="auto"></audio>
+    <audio data-type="del" src="./sound/buttonSound.mp3" preload="auto"></audio>
 </body>
 </html>

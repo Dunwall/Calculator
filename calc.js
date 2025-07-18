@@ -4,6 +4,17 @@ const content = display.textContent;
 let secondInput = "";
 let firstInput = "";
 let op = "";
+let pressedFlag = false;
+
+function test(e){
+    const digit = document.querySelector(`button[data-digit="${e.code}"]`); 
+    const numPad = document.querySelector(`button[data-numPad="${e.code}"]`);
+    const tryTest = document.querySelector(`e.code`);
+    console.log(tryTest);
+}
+
+window.addEventListener('keydown',test);
+
 btns.forEach((btn)=>{
     btn.addEventListener('click',(e)=>{
         playSound(e);
@@ -16,6 +27,10 @@ btns.forEach((btn)=>{
             del();
         }
         if(type === 'number'){
+            if(pressedFlag === true){
+                clearDisplay();
+                pressedFlag = false;
+            }
             if(op === ""){
                 firstInput += value;
                 updateDisplay(firstInput);
@@ -26,22 +41,23 @@ btns.forEach((btn)=>{
                     updateDisplay(secondInput);
                     console.log(`secondValue = ${secondInput}`);
             }
+
             
         }
         else if(type === "operator"){
                 if(value === "=" && secondInput!==""){
                     let result = operate(op,firstInput,secondInput);
-                    updateDisplay(result);
-                    console.log(result);
-                    firstInput = result;
-                    secondInput = "";
-                    op = "";
+                    let finalResult = round(result);
+                    updateDisplay(finalResult);
+                    console.log(finalResult);
+                    pressedFlag = true;
                 }
                 else if(value !== "=" && secondInput!==""){
                     let firstResult = operate(op,firstInput,secondInput);
-                    updateDisplay(firstResult);
-                    console.log(`First Result: ${firstResult}`);
-                    firstInput = firstResult;
+                    let roundedFirstResult = firstResult;
+                    updateDisplay(roundedFirstResult);
+                    console.log(`First Result: ${roundedFirstResult}`);
+                    firstInput = roundedFirstResult;
                     secondInput = "";
                     op = value;
                     updateProgress();
@@ -54,22 +70,21 @@ btns.forEach((btn)=>{
     })
 })
 
+function round(a){
+    return parseFloat(a.toFixed(10));
+}
+
 function updateProgress(){
     updateDisplay(`${firstInput} ${op} ${secondInput}`);
 }
 
 function playSound(e){
     const type = e.target.dataset.type;
-    try{
     const audio = document.querySelector(`audio[data-type="${type}"]`);
     if(!audio)return;
 
     audio.currentTime = 0;
     audio.play();
-    }
-    catch(err){
-        console.error("audio error: ",err);
-    }
 }
 
 function del(){
