@@ -7,10 +7,11 @@
 
 :root{
     --dark-orange: #513d29;
-    --dark-orange-hover:#6d5237;
+    --dark-orange-hover:#613d29;
+    --dark-orange-active:#512d29;
     --bright-orange: #F48B32;
+    --brightest-orange: #ff7903; 
     --brighter-orange: #e97612;
-    --brightest-orange: #ff7903;
     --seasalt: #FAF9F9;
     --seasaltHover: #ffffff;
     --coolGray: #2b2c2c;
@@ -23,13 +24,12 @@
 }
 
 .seasalt:hover{
-    color: var(--bright-orange);
+    color: var(--brightest-orange);
     background-color: var(--seasalt);
 }
 
 .seasalt:active{
-    color: black;
-    background-color: var(--seasalt);
+    color: var(--brighter-orange);
 }
 
 .delete>i{
@@ -38,7 +38,11 @@
 }
 
 .delete:hover i{
-    color: var(--bright-orange);
+    color: var(--brightest-orange);
+}
+
+.delete:active i{
+    color: var(--brighter-orange);
 }
 
 .coolGray{
@@ -49,6 +53,9 @@
     background-color: var(--bright-orange);
 }
 .bright-orange:hover{
+    background-color: var(--brightest-orange);
+}
+.bright-orange:active{
     background-color: var(--brighter-orange);
 }
 
@@ -96,6 +103,10 @@ button{
 
 button:hover{
     background-color: var(--dark-orange-hover);
+}
+
+button:active{
+    background-color: var(--dark-orange-active);
 }
 
 .calculator{
