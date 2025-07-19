@@ -6,14 +6,38 @@ let firstInput = "";
 let op = "";
 let pressedFlag = false;
 
-function test(e){
-    const digit = document.querySelector(`button[data-digit="${e.code}"]`); 
-    const numPad = document.querySelector(`button[data-numPad="${e.code}"]`);
-    const tryTest = document.querySelector(`e.code`);
-    console.log(tryTest);
-}
+window.addEventListener('keydown',(e)=>{
+    console.log("Key:", e.key, "| Code:", e.code);
 
-window.addEventListener('keydown',test);
+    const digitBtn = document.querySelector(`[data-digit="${e.code}"]`);
+    const numpadBtn  = document.querySelector(`[data-numPad="${e.code}"]`);
+    const opBtn = document.querySelector(`[data-op="${e.code}"]`);
+
+    const valueBtns = document.querySelectorAll('[data-value]');
+    let specBtn = "";
+
+    valueBtns.forEach(btn=>{
+        if(btn.dataset.value === e.key){
+            specBtn = btn;
+            console.log(specBtn);
+        }
+    });
+
+    if(digitBtn){
+        digitBtn.click();
+    }
+    else if(numpadBtn){
+        numpadBtn.click();
+    }
+
+    else if(specBtn){
+        specBtn.click();
+    }
+    
+    else if(opBtn || special){
+        opBtn.click();
+    }
+})
 
 btns.forEach((btn)=>{
     btn.addEventListener('click',(e)=>{
@@ -32,11 +56,18 @@ btns.forEach((btn)=>{
                 pressedFlag = false;
             }
             if(op === ""){
+                if(value === '.' && firstInput.includes('.')){
+                    return;
+                    console.log('bitch');
+                }
                 firstInput += value;
                 updateDisplay(firstInput);
                 console.log(`firstValue = ${firstInput}`);
             }
             else if(op!=="="){
+                    if(value === '.' && secondInput.includes('.')){
+                        return;
+                    }
                     secondInput += value;
                     updateDisplay(secondInput);
                     console.log(`secondValue = ${secondInput}`);
@@ -44,7 +75,7 @@ btns.forEach((btn)=>{
 
             
         }
-        else if(type === "operator"){
+        else if(type === "operator" && firstInput!==""){
                 if(value === "=" && secondInput!==""){
                     let result = operate(op,firstInput,secondInput);
                     let finalResult = round(result);

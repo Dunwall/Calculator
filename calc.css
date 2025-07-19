@@ -27,6 +27,11 @@
     background-color: var(--seasalt);
 }
 
+.seasalt:active{
+    color: black;
+    background-color: var(--seasalt);
+}
+
 .delete>i{
     color: black;
     transition: 0.5s;
